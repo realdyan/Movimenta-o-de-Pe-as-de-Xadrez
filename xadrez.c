@@ -1,47 +1,78 @@
 #include <stdio.h>
+#include <string.h>
 
+// Recursividade Torre
+ void Torre(int m) {
+   if (m > 0)
+   {
+      printf("Torre: Direita\n");
+      Torre(m - 1);
+   }
+ }
+
+
+ // Recursividade Bispo
+ void Bispo(int n) {
+   for (int p = 0; p < n; p++)
+   { 
+    printf("Bispo: Cima\n");
+    for (int j = 0; j < n; j++)
+    {
+      if (p == j)
+      {
+     printf("Bispo: Direita\n");
+    }
+   }
+   }
+  }
+ 
+ 
+ // Recursividade Rainha
+ void Rainha(int p) {
+   if (p > 0) {
+      printf("Rainha: Esquerda\n");
+      Rainha(p - 1);
+   }
+ }
+
+ 
 int main () {
 
-// Variaveis Movimentos das Peças
- int movTorre = 5;
- int movBispo = 5;
- int movRainha = 8;
+// Variaveis Numero de Casas a andar
+ int movTorre;
+ int movBispo;
+ int movRainha;
  int movCavalo = 1;
  int i;
- 
 
- // Torre - Cinco casas para a direita.
- //loop for
- for (i=0; i < movTorre; i++) {
-    printf("Torre: Direita \n");
- }
  
-  printf("\n");
+ // Torre : Entrada de dados e Movimentação
+  printf("Torre: Mover quantas Casas ?\n");
+  scanf("%i", &movTorre);
 
- /* Bispo - Cinco casas na diagonal para cima e à direita.
-    Para representar a diagonal, você imprimirá a combinação 
-    de duas direções a cada casa (ex: "Cima, Direita"). */
- // loop while
- i = 0;
- while (i < movBispo) {
-    printf("Bispo: Cima\n");
-    printf("Bispo: Direita\n");
-    i++;
- }
+  Torre(movTorre);
+
+
 
  printf("\n");
 
- // Rainha - Oito casas para a esquerda.
- //loop do while
- i = 0;
- do {
-    printf("Rainha: Esquerda\n");
-    i++;
- } while (i < movRainha);
 
-  
- 
- 
+  // Bispo : Entrada de dados e chamda da funcao movBispo
+  printf("Bispo: Mover quantas Casas ?\n");
+  scanf("%i", &movBispo);
+
+  Bispo(movBispo);
+
+  printf("\n");
+
+
+  // Rainha : Entrada de dados e Movimentação
+  printf("Rainha: Mover quantas Casas ?\n");
+  scanf("%i", &movRainha);
+
+  Rainha(movRainha);
+
+
  
  printf("\n");
  //Cavalo
